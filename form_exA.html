@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼 디자인 예제 A</title>
+</head>
+<body>
+    <form action="join.do" method="post" name="frm">
+        <table border="0">
+            <tr>
+                <!-- table 이름을 작성. align="center"값을 주어서 가운데 정렬시킴 -->
+                <td colspan="2" height="50" align="center"><회원 가입></td>
+            </tr>
+            <tr>
+                <td width="100">이름</td>
+                <td><input type="text" name="username" id="username"></td>
+            </tr>
+            <tr>
+                <td>아이디</td>
+                <td><input type="text" name="userID" id="userid"></td>
+                <!-- input type에 "button" 속성 값을 주어 클릭버튼을 생성 -->
+                <td><input type="button" value="중복체크"></td>
+            </tr>
+            <tr>
+                <td>암호</td>
+                <td><input type="password" name="userPW" id="userpw"></td>
+            </tr>
+            <tr>
+                <td>암호 확인</td>
+                <td><input type="password" name="userPW2" id="userpw2"></td>
+                <!-- input type에 "button" 속성 값을 주어 클릭버튼을 생성 -->
+                <td><input type="button" value="확인"></td>
+            </tr>
+            <tr>
+                <td>이메일</td>
+                <td><input type="text" name="userMAIL" id="usermail"></td>
+            </tr>
+            <tr>
+                <td>등급</td>
+                <td>
+                    <!-- input type에 "radio" 속성 값을 주어 라디오버튼을 만들고
+                          name 속성의 값을 동일하게 하여 버튼을 하나만 체크할 수 있도록 함 -->
+                    <input type="radio" name="userOrder" value="userOrder"><label>일반회원</label>
+                    <input type="radio" name="userOrder" value="userOrder"><label>관리자</label>
+                </td>
+            </tr>
+            <!-- 확인/취소 버튼을 만들고자 height="50" 값을 주었고
+                 table 열의 간격을 이격시킴 -->
+            <tr height="50">
+                <!-- 확인/취소 버튼을 가운데 정렬시키고자
+                    colspan 속성과 align 속성을 적절히 사용 -->
+                <td colspan="2" align="center">
+                    <input type="submit" value="확인">
+                    <!-- &nbsp; 명령어를 주어 확인과 취소 버튼 사이를 이격시킴 -->
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="reset" value="취소">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+
+</body>
+</html>
