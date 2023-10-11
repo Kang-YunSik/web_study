@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /* div중 id 속성을 사용한 객체의 스타일 */
+        /* 활용 : div에 id 속성을 추가하여 큰 틀을 만들 수 있음 */
+        div[id] {
+            margin:50px 50px auto;
+            padding: 50px 50px 50px 50px;
+            border: solid;
+        }
+        /* div중 class 속성을 사용한 객체의 스타일 */
+        /* 활용 : div에 class 속성을 추가하여 콘텐츠 삽입 틀을 만들 수 있음 */
+        div[class] {
+            width: 200px;
+            height: 100px;
+            background: #91bfc7;
+            margin:20px auto;
+            border: double;
+            color: rgb(199, 36, 15);
+        }
+        /* padding값에 따라 div의 영역이 달라진다. */
+        /* 하지만, content 영역의 크기는 모두 같다 */
+        /* 즉, content 영역을 다루는 속성은 없다. 따라서 margin과 padding을 잘 활용해 content의 위치를 조절해야 한다. */
+        .box1 { padding: 10px 30px 10px 30px;}
+        .box2 { padding: 30px 50px;}
+        .box3 { padding: 100px;}
+    </style>
+</head>
+<body>
+    <!-- id속성을 사용한 div (큰 틀) -->
+    <div id="page">
+        <!-- class 속성을 사용한 div (콘텐츠 틀) -->
+        <div class="box1"> 콘텐츠 시작점1 (패딩1) </div>
+        <div class="box2"> 콘텐츠 시작점2 (패딩2) </div>
+        <div class="box3"> 콘텐츠 시작점3 (패딩3) </div>
+    </div>
+</body>
+</html>
