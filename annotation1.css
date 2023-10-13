@@ -1,0 +1,59 @@
+    /* 4번 파트 시작 */
+    /* #contents의 자식관계로 태그 id가 contents 일 때만 적용되는 스타일 */
+
+    /* class="partner"인 태그에 적용 되는 스타일 */
+    .partner{
+        float:left; /* 요소를 오른쪽으로 자연스럽게 배치 */
+        width:480px; /* 요소의 content box의 가로 길이 = 480px */
+        margin-top:20px; /* 상단 margin = 20px */
+                        /* 상단 imgslider와의 여백  */
+    }
+
+    /* class="partner" 중에서 h2 태그에 적용 되는 스타일 */
+    .partner h2{text-align:center} /* 글꼴 가운데 정렬. 정보나눔 텍스트 정렬 */ 
+
+    /* class="partner" 중에서 pre 태그에 적용 되는 스타일 */
+    /* pre태그란 미리 지정된 고정폭 글꼴을 사용하며, html문서에 적은 여백과 줄바꿈을 그대로 화면에 출력한다. (&nbsp, <br>을 사용하지 않아도됨) */
+    .partner pre {color: #666666} /* 글꼴 색상 = #666666. 정보나눔 텍스트 색상 */
+
+    /* class="partner_info" 태그에 적용 되는 스타일 */
+    .partner_info{margin-top: 30px;} /* 상단 margin = 30px. 이미지의 상단 여백 */
+
+    /* class="icon" 태그에 적용 되는 스타일 */
+    .icon{margin-top: 20px} /* 상단 margin = 20px. 아이콘들(새소식, 여행음악, 여행메뉴얼)의 상단 여백 */
+    .icon{text-align:center} /* 해당 클래스의 태크 content들을 가운데 정렬 */
+                            /* icon -> icons로 변경해도 무방. 부모-자식 관계로 부터 CSS에 변화가 없음 */
+
+    /* class="imgbtn" 태그에 적용 되는 스타일 (아이콘 이미지와 버튼이 들어갈 공간) */
+    .imgbtn{
+        width:160px; /* 아이콘의 가로 길이 = 160px */
+        margin:0 20px; /* 상단, 하단 margin = 0px */
+                      /* 좌측, 우측 margin = 20px (서로 다른 객체로 인식해 margin 겹침 현상 없음) */
+        display:inline-block /* display:inline-block : div(block 요소)를 한 줄에 배치 */
+                            /* block의 크기만큼 한 줄에 배치된다.(꽉차면 줄바꿈) */
+
+                            /* display:block : 줄바꿈 */
+                            /* display:block은 inline, block요소를 컨텐츠로 가질 수 있다. */
+                            /* block 요소 : div, p, h1 ~ h6, ul, ol */
+
+                            /* display:inline : 줄바꿈 X */
+                            /* display:inline block요소를 컨텐츠로 가질 수 없다. */
+                            /* inline 요소 : span, a 등 */
+    }
+
+    /* class="imgbtn" 중에서 button 태그에 적용 되는 스타일 (아이콘 이미지와 버튼이 들어갈 공간) */
+    .imgbtn button{
+        padding: 10px;
+        background-color: #999999; /* 버튼의 뒷 배경 색상 */
+        color:#FFF; /* 버튼의 글꼴 색상 */
+        border:none; /* box의 border(테두리)는 없음 */
+        border-radius: 10px; /* border 10px로 라운드짐 */
+        font-size: 20px; /* 버튼의 글꼴 사이즈 */
+    }
+
+
+button{cursor:pointer} /* button 태그의 스타일 : 커서를 올렸을 때, 포인터로 바뀜 */
+    .imgbtn>button:hover{background-color:#900} /* 커서를 올렸을 때, content 색상 변경 */
+                                                  /* .imgbtn>button : imgbtn의 자식인 button을 선택자로 지정 */
+
+    /* 4번 파트 끝 */
