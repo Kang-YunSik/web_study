@@ -1,0 +1,557 @@
+@charset "utf-8";
+/* CSS Document */
+/* 예제 파일 해석하기 */
+
+/***** [새로 알게된 속성] *****/
+/* 1. list-style : <ol>,<ul>,<li> 태그에 대한 스타일 */
+/*    -type : 항목 모양 */
+/*    -position : 항목 위치  */
+/*    -image : 항목 모양을 이미지로  */
+/* 2. inherit : 부모로 부터 값을 상속 받음 */
+/* 3. overflow : 요소 내의 content의 크기가 너무 커서 보여주기 힘들 때, 어떻게 보여줄지 정함 */
+/* 	  - :visible : 기본 값. 넘칠 경우 컨텐츠가 상자 밖으로 보여짐 */
+/* 	  - :hidden : 넘치는 부분은 잘려서 보이지 않음 */
+/*    - :scroll : 스크롤바가 추가 됨. 넘치는 부분은 스크롤로 볼 수 있음 */
+/* 4. transtition : 전환 효과. 여러 가지 속성이 있음 */
+/* 5. background : 배경 단축 속성. */
+/* 	  -repeat : 배경 이미지가 주어진 영역을 채우지 못할 때 반복할 방식 결정 */
+/* 	  -image : 배경에 이미지를 지정. 형식: url(이미지주소) */
+/* 6. clear 속성 : https://github.com/Kang-YunSik/web_study/tree/main/CSS_property_study/clear */
+/* 7. inherit 속성값 : https://github.com/Kang-YunSik/web_study/tree/main/CSS_property_study/float_inherit */
+/* 8. background-position 속성 : <x축 위치변화> <y축 위치변화> 배경 이미지의 위치를 정하는 속성 */
+/* 9. line-height : 텍스트 한 줄의 높이(행간) */
+/* 10. border-collapse : 테이블에서 바깥테두리와 안쪽테두리를 합쳐서 표시할지, 분리해서 표시할지 정하는 속성 */
+/*    -separate : 분리해서 표시 */
+/*    -collapse : 합쳐서 표시 */
+
+/***** [새로 알게된 개념] *****/
+/* 1. min-width의 반응형 웹 페이지 적용 
+	 브라우저의 최소길이 로 반응형 웹페이지를 만든다면,
+	 작은 사이즈의 레이아웃을 기본적으로 만들고 점차 확장해 나가는 식으로 코드를 작성한다.
+	 위의 방식으로 작성한다면 브라우저 사이즈가 커지면 양옆으로 레이아웃이 확장된다. */
+/* 2. CSS코드에서 태그의 부모-자식 관계는 '>'기호로 표현한다.
+	HTML문서에서 동일한 id나 class가 있으면, CSS코드가 둘다 적용되는 것이다.
+	예로 들어 HTML 문서에 아래와 같은 관계를 갖을 때, .nav>li로 <li>에 스타일을 줄 수 있다.
+	<ul class="nav">
+		<li><a href="#">동호회소개</a>
+	class의 부모-자식 관계는 .부모클래스 .자식클래스 로 표현한다.
+	예로 들어 HTML 문서에 아래와 같은 관계를 갖을 때, .modal .content로 content 클래스에 스타일을 줄 수 있다.
+	<div class="modal">
+		<div class="content"> */
+/* 3. ul, li을 가로로 나열하고 싶을 때 float:left로 정렬시킴 */
+/* 4. text-align은 글자만 정렬되는 것이 아니라, content box안에 있는 요소들이 모두 정렬됨 */
+/* 5. [드롭 다운 메뉴 만들기] : https://github.com/Kang-YunSik/web_study/blob/main/dropmenu.html  */
+/* 8. 우선순위 id > class */
+
+/***** [궁금한 내용] *****/
+/* 1. 해당 코드에서 background-position을 준 이유. 이동과는 관련 없는데, 값을 정했을 때 해당 이미지가 어디로 이동하는지 */
+/* 2. !important를 주는 이유. 상위 속성 값이 무엇인지 어떻게 검사하는지? */
+
+/***** [전체 적용 스타일] *****/
+/* 1. margin : 상하=0, 좌우=가운데정렬 */
+/* 2. list-style : 기본값 */
+/* 3. padding : 상하좌우=0 */
+/* 전체 적용은 어디에 적용되는 건가요? */
+/*   -> maring, padding 값을 dafault로 가져가는 태그들이 존재한다. 그 값을 0으로 초기화 */
+* {
+  margin: 0 auto;
+  list-style: none;
+  font-family: "맑은 고딕";
+  padding: 0;
+}
+/* [<body>,<html> 적용 스타일] */
+/* 1. background-color : 배경 색상=#FFFFFF */
+/* 2. min-width : 최소 가로 길이 1000px */
+/*    min-width의 개념. 길이가 정해지는건지 뭔지? */
+/*      ->  브라우저가 1000px보다 줄어들면 그만큼 안보임 */
+/* 3. color : 글꼴 색상=#666666 */
+/* body와 html 스타일을 적용하는 이유와 어디에 적용되는건가요? */
+body,
+html {
+  background-color: #ffffff;
+  min-width: 1000px;
+  color: #666666;
+}
+/***** <img> 적용 스타일 *****/
+/* 1. max-width : 이미지 가로 비율=100% (자동 크기 조절, 부모 요소 크기에 맞게 삽입) */
+/* max-width의 개념. 어떤 요소를 기준으로 100% 인지? */
+/*   -> img태그의 부모 width를 기준으로 이미지 크기가 정해짐 */
+img {
+  max-width: 100%;
+}
+/***** class="all" 적용 스타일 *****/
+/* 1. width : 너비=100% */
+/* 2. float : 요소=왼쪽 정렬 */
+/* float에서 줄바꿈되는 기준. 영역의 길이를 어떻게 설정하는지. 영역을 어떻게 나누는지? */
+/*  -> block 요소를 기준으로 줄바꿈 되거나, 요소가 width의 크기를 넘었을 때 줄바꿈 된다. */
+/* width 어디를 기준으로 100%? */
+/*  -> */
+.all {
+  width: 100%;
+  float: left;
+}
+/***** class="wrap" 적용 스타일 *****/
+/* 1. width : 너비=1000px */
+.wrap {
+  width: 1000px;
+}
+/***** id="contents" 적용 스타일 *****/
+/* 1. height : content 박스 높이=500px */
+/* 2. padding : 상하좌우 여백=20px */
+#contents {
+  height: 500px;
+  padding: 20px;
+}
+/***** class="wrap" <a> 적용 스타일 *****/
+/* 1. color : 글꼴 색상=부모(body,html태그)로부터 상속받음*/
+/* 2. text-decoration : 밑줄 표시X */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 1. clear : 이전 float 속성 해제 */
+/* 2. position : 부모의 position 속성 값을 상속받음. */
+/* 해당 값을 정의한 이유 : html 중간 중간에 clear class를 삽입하여 float 초기화와 position 값 상속을 시킴. */
+.clear {
+  clear: both;
+  position: inherit;
+}
+
+/***** <header> 적용 스타일 *****/
+/* height : content박스 높이=150px */
+header {
+  height: 150px;
+}
+/***** <header> id="header_logo" 적용 스타일 *****/
+/* 1. padding : content여백=20px */
+#header_logo {
+  padding: 20px;
+}
+
+/***** class="logo" 적용 스타일 *****/
+/* 1. height : 세로 길이=110px */
+/* 2. overflow : 넘치는 부분은 보이지 않음 */
+/* 3. float : <header>에서 왼쪽에 위치 */
+.logo {
+  height: 110px;
+  overflow: hidden;
+  float: left;
+}
+
+/***** class="logo"의 자식<a>의 자식<img> 적용 스타일 *****/
+/* 1. width : 가로 길이=300px */
+/* 336px로 늘리면 <nav>요소가 줄바뀜됨. 어떻게 300px라는 줄바꿈이 안되는 값을 찾은 걸까? */
+/*   -> 디자이너 몫 */
+.logo > a > img {
+  width: 300px;
+}
+
+/***** <nav> 적용 스타일 *****/
+/* 1. float : <header>에서 왼쪽 정렬 */
+/* 2. padding-left : 왼쪽 padding=50px */
+nav {
+  float: left;
+  padding-left: 50px;
+}
+
+/***** class="nav" 적용 스타일 *****/
+/* 1. width : 가로 길이=600px */
+/* 2. height : 세로 길이=20px */
+/* height 속성을 왜 줬을까? */
+/*  -> 안티패턴임 */
+/* margin-top : 위쪽 margin=10px */
+.nav {
+  width: 600px;
+  height: 20px;
+  margin-top: 10px;
+}
+
+/***** class="nav"의 자식<li> 적용 스타일 *****/
+/* 1. width : 가로길이=150px */
+/* 2. float : <li> 요소를 왼쪽부터 정렬 */
+/* 3. text-align : 글꼴 가운데 정렬 */
+/* 4. position : 좌표값이 없으므로 HTML요소의 기본 흐름에 따라 배치 */
+/* 5. transtition : 모든 전환효과를 0.4초만에 수행 */
+/* 					적용될 전환효과(submenu): background-color, color, width, margin-top, z-index */
+/* 6. padding : 상하=5px 좌우=0px */
+.nav > li {
+  width: 150px;
+  float: left;
+  text-align: center;
+  position: relative;
+  transition: all 0.4s;
+  padding: 5px 0;
+}
+
+/***** class="nav"의 자식<li>가 끝나고 적용될 스타일 *****/
+/* 1. clear : float 속성 초기화 */
+/*            이후에도 float: left가 연달아 있어 의미 없음 */
+.nav > li:after {
+  clear: both;
+}
+
+/***** class="nav"의 자식<li>에 마우스를 올렸을 때 스타일 *****/
+/* 1. 배경색=#3366FF */
+/* 2. 글자색=#FFFFFF */
+.nav > li:hover {
+  background-color: #3366ff;
+  color: #ffffff;
+}
+
+/***** class="submenu" 적용 스타일 *****/
+/* 1. display : none. transition이 없을 땐 보이지 않음. hidden과 다름 */
+/* 				hidden은 표시될 영역과 내용이 보임 */
+/* 2. 배경색=rgba */
+/* 3. position : 절대좌표. 기준은 부모li 바로 밑(li의 자식 ul 이기때문에)  */
+/* 4. z-index : 맨 앞으로 보냄(아래 사진 보다 상위에 표시되게) */
+/* 5. 가로길이=100% (nav>li기준 150px) */
+/* 6. margin-top=5px (상위 메뉴와 하위메뉴의 여백) */
+.submenu {
+  display: none;
+  background-color: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  margin-top: 5px;
+}
+
+/***** class="submenu"의 자식<li> 적용 스타일 *****/
+/* 1. padding : 상하=5px(메뉴 내용의 content 여백)*/
+/* 2. transtition : 모든 전환효과를 0.4초만에 수행 */
+/* 3. 글자색=#000000 */
+.submenu > li {
+  padding: 5px 0 5px 0;
+  transition: all 0.4s;
+  color: #000000;
+}
+
+/***** class="submenu"의 자식<li>에 마우스를 올렸을 때 적용 스타일 *****/
+/* 1. 배경색=#999999 */
+/* 2. 글자색=부모 상속(#000000) */
+.submenu > li:hover {
+  background-color: #999999;
+  color: inherit;
+}
+
+/***** id="imageslide" 적용 스타일 *****/
+/* 1. margin=상하=0px, 좌우=대칭 */
+/* 2. 가로=1000px, 세로=400px */
+/* 4. overflow : 원본 사진 크기의 넘치는 부분은 보이지 않음 */
+/* 5. position : 기준점이 요소의 왼쪽 모서리로, 좌표값이 없으니 자연스럽게 배치 */
+#imageslide {
+  margin: 0 auto;
+  width: 1000px;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+
+/***** id="imgs" 적용 스타일 *****/
+/* 1. 가로길이=5000px */
+/*    가로길이를 5000px을 가져간 이유 : 1000px짜리 사진을 5개 배치하기위해*/
+/*    flost: left로 배치를하고, overflow:hidden으로 기준너비(1000px)를 넘는 요소는 숨김 */
+/* 2. position : #imageslide의 왼쪽 모서리를 기준으로 배치 */
+#imgs {
+  width: 5000px;
+  position: absolute;
+}
+
+/***** id="imgs" <img> 적용 스타일 *****/
+/* 1. float : 요소 왼쪽 정렬(overflow: hidden이므로 가로1000px이후로는 보이지 않음) */
+#imgs img {
+  float: left;
+}
+
+/***** id="imgsbar" 적용 스타일 *****/
+/* 1. position : HTML 흐름대로 배치. 아직 block요소를 작성하지 않아 imageslide의 최상단에 위치  */
+/* 2. margin : 상하=20px, 좌우=대칭 */
+/* 3. 세로길이=80px (자식 a태그 5개를 대입하려면 최소 필요한 길이=75px */
+#imgsbar {
+  position: relative;
+  margin: 20px auto;
+  width: 80px;
+}
+
+/***** id="imgsbar" <a> 적용 스타일 *****/
+/* 1. float : 요소 왼쪽 배치 */
+/* 2. 가로,세로=15px */
+/* 4. 배경 : image주소. no-repeat=영역에 이미지가 꽉차지 않았을 때, 이미지를 반복하지 않음 */
+#imgsbar a {
+  float: left;
+  width: 15px;
+  height: 15px;
+  background: url(images/slide/dot.png) no-repeat;
+}
+
+/***** id="imgsbar" <a class="active"> 적용 스타일 *****/
+/* 1. background-position : 배경 이미지의 위치를 정하는 속성. x축이동=0px, y축이동=-30px */
+/*    ??? : 이동과는 관련이 없는 속성 같은데... 무슨 변화가 있는건지??? */
+/*          이동은 html문서 내에 작성되어 있음 */
+#imgsbar a.active {
+  background-position: 0 -30px;
+}
+
+/***** class="welcome" 적용 스타일 *****/
+/* 1. 가로=100px, 세로=300px */
+/* 2. position: absolute(left 50%, top 50%) = 기준점 가운데 정렬. */
+/* 3. margin=(top=-50px, left=-150px). 기준점을 기준으로 -50px, -150px 이동
+/* 		important를 준 이유. 어디랑 겹치는게 있나, 어떻게 겹치는 값을 찾을 수 있나??? */
+/* 4. 글꼴 가운데 정렬 */
+/* 5. line-height : 텍스트 한 줄의 높이 */
+/* 6. 배경색=rgba */
+/* 7. border-radius=20px, 모서리 라운드 */
+.welcome {
+  height: 100px;
+  width: 300px;
+  position: absolute;
+  margin: -50px 0px 0px -150px !important;
+  text-align: center;
+  line-height: 100px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  top: 50%;
+  left: 50%;
+}
+
+/***** class="welcome" <h2> 적용 스타일 *****/
+/* 글꼴 색상=흰색 */
+.welcome h2 {
+  color: #ffffff;
+}
+
+/***** id="contents" 적용 스타일 *****/
+/* 세로 길이=500px (.wrap에서 이미 지정한 값임) */
+#contents {
+  height: 500px;
+}
+
+/***** class="notice" 적용 스타일 *****/
+/* 1. 가로 길이=480px (전체 500px - 패딩 10px+10px) */
+/* 2. margin-top=20px #contents의 padding을 기준으로 위쪽을 이격시킴 */
+/* 3. float=왼쪽 배치 */
+.notice {
+  width: 480px;
+  margin-top: 20px;
+  float: left;
+}
+
+/***** class="notice" <h2> 적용 스타일 *****/
+/* 1. 글꼴 색상=#666666 */
+/* 2. 글꼴=가운데정렬 */
+/* 3. padding: 하=10px. 다음에 오는 block요소와 이격시킴 */
+.notice h2 {
+  color: #666666;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+/***** class="table" 적용 스타일 *****/
+/* 1. border-collapse : 테두리 합쳐서 표시
+      테이블에서 바깥테두리와 안쪽테두리를 합쳐서 표시할지, 분리해서 표시할지 정하는 속성 */
+/* 2. 글꼴 크기=0.9em=16px*0.9=14.4px*/
+/* 3. 글꼴 색상=#666666 */
+/* 4. 가로 길이=480px (전체 500px - 패딩 10px+10px) */
+.table {
+  border-collapse: collapse;
+  font-size: 0.9em;
+  color: #666666;
+  width: 480px;
+}
+
+/***** class="table" <tr>의 자식<td> 적용 스타일 *****/
+/* 1. padding: 상하좌우 5px */
+/*    paddint-top=10px은 padding=5px 선언으로 중복되어 사라짐 */
+.table tr > td {
+  padding-top: 10px;
+  padding: 5px;
+}
+
+/***** class="table" 2n번째<tr> 적용 스타일 *****/
+/* 1. tr:nth-child(2n) : <tr>태그의 2n번째 */
+/* 2. 배경색상=#CCCCCC */
+.table tr:nth-child(2n) {
+  background-color: #cccccc;
+}
+
+/***** class="partner" 적용 스타일 *****/
+/* 1. 가로 길이 = 480px */
+/* 2. margin-top=20px #contents의 padding을 기준으로 위쪽을 이격시킴 */
+/* 3. float: 요소를 오른쪽 배치 */
+.partner {
+  width: 480px;
+  margin-top: 20px;
+  float: right;
+}
+
+/***** class="partner" <h2> 적용 스타일 *****/
+/* 1. 글꼴 색상=#666666 */
+/* 2. 글꼴=가운데정렬 */
+/* 3. padding : 하=10px */
+.partner h2 {
+  color: #666666;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+/***** class="partner_info" 적용 스타일 *****/
+/* margin: 상=10px */
+/* 글꼴(img)=가운데정렬 */
+.partner_info {
+  margin-top: 10px;
+  text-align: center;
+}
+
+/***** class="modal" 적용 스타일 *****/
+/* class="modal"은 클릭했을 때 뜨는 팝업창 */
+/* 1. position : 고정위치 기준점(0,0)
+			, absolute와 출력되는 것은 똑같지만 스크롤 기능 추가 */
+/* 2. 가로 세로=100% 100%=기준이 뭐임? */
+/*    -> fixed는 z-index기준으로 width, height 값을 상속받음 */
+/* 3. z-index=99, 가장 맨위 */
+/* 4. 배경색=rgba, 투명도 50% */
+/* 5. text-align=가운데 정렬 */
+/* 6. display=none, 처음 화면에서는 출력이 안됨. */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  display: none;
+}
+
+/***** class="modal"의 자식 class="content" 적용 스타일 *****/
+/* 팝업창에서의 스타일 */
+/* 1. margin: 상하=20px, 좌우=가운데정렬 */
+/* 2. padding: 상하좌우=20px */
+/* 3. 가로 길이=600px */
+/* 4. 배경 색상=#FFFFFF */
+.modal .content {
+  margin: 20px auto;
+  padding: 20px;
+  width: 600px;
+  background-color: #ffffff;
+}
+
+/***** class="modal"의 자식 class="content"의 자식 <img> 적용 스타일 *****/
+/* 1. display=block : div 처리(width 최대값 취급하여 줄바꿈) */
+/* 2. margin : 상하=0px, 좌우=대칭 */
+/* 3. padding : 상하=20px, 좌우=30px */
+.modal .content img {
+  display: block;
+  margin: 0 auto;
+  padding: 20px 30px;
+}
+
+/***** class="modal"의 자식 class="content"의 자식 <button> 적용 스타일 *****/
+/* 1. 글꼴색상=#FFF */
+/* 2. padding: 상하=5px, 좌우=10px */
+/* 3. border: 보이지 않음. 모서리 라운드=5px */
+/* 4. 배경색상=#999999 */
+/* 5. cursor: 포인터모양 */
+/* 가운데정렬된 이유 : 부모 modal클래스에서 text-align: center; */
+.modal .content button {
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #999999;
+  cursor: pointer;
+}
+
+/***** class="icon" 적용 스타일 *****/
+/* 1. margin : 상하=10px */
+/* 2. positon : html 문서 흐름에 따라 배치 */
+.icon {
+  margin: 10px auto;
+  text-align: center;
+}
+
+/***** class="btn" 적용 스타일 *****/
+/* 1. 가로길이=180px */
+/* 2. margin: 상하좌우=30px */
+/* 3. display : 요소를 한줄로 배치 */
+/* display??? */
+/* 4. 가운데정렬된 이유: 부모 icon클래스에서 text-align: center; */
+.btn {
+  width: 180px;
+  margin: 30px;
+  display: inline-block;
+}
+
+/***** class="btn" 자식<button>에 마우스 올렸을 때 적용 스타일 *****/
+/* 1. 배경색상=#3366ff */
+.btn > button:hover {
+  background-color: #3366ff;
+}
+
+/***** class="btn" 자식<button> 적용 스타일 *****/
+/* 1. padding : 상하좌우=10px */
+/* 2. 배경색상=#999999 */
+/* 3. 글꼴색상=#ffffff */
+/* 4. border=표시 안함, 라운드=10px */
+/* 5. 글꼴크기=20px */
+.btn button {
+  padding: 10px;
+  background-color: #999999;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+/***** <footer> 적용 스타일 *****/
+/* 1. 가로, 세로=1000px, 100px */
+/* 2. 배경색상=#3366ff */
+/* 3. 글자색상=#ffffff */
+/* 4. overflow : 요소가 넘쳤을 때, 안보이게 설정 */
+/* 5. margin : 상=10px */
+footer {
+  height: 100px;
+  width: 1000px;
+  background-color: #3366ff;
+  color: #ffffff;
+  overflow: hidden;
+  margin-top: 10px;
+  padding: 10px 20px;
+}
+
+/***** <footer> class="wrap" 적용 스타일 *****/
+/* 1. padding : 상하=10px, 좌우=20px */
+/* 리팩토링: footer로 올림. */
+/* footer .wrap {
+  padding: 10px 20px;
+} */
+
+/***** <footer> <ul> 적용 스타일 *****/
+/* 1. 가로 길이= 50%(1000px -> 500px)  */
+/* 2. float : 왼쪽으로 배치 */
+footer ul {
+  width: 50%;
+  float: left;
+}
+
+/***** <footer> <ul>의 자식<li> 적용 스타일 *****/
+/* 1. float : 왼쪽으로 배치 */
+/* 2. margin : 상=10px, 좌=20px */
+footer ul > li {
+  float: left;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+/***** <footer> <p> 적용 스타일 *****/
+/* 1. 가로길이=50%(1000px -> 500px) */
+/* 2. 글꼴크기=12px */
+/* 3. float : 오른쪽 배치 */
+/* 4. 글꼴색상=#ffffff */
+footer p {
+  width: 50%;
+  font-size: 12px;
+  float: right;
+  color: #ffffff;
+}
