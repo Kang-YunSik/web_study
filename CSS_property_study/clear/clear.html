@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<!-- 배운점 -->
+<!-- 1. class를 동시에 여러개 선언할 수 있다.  -->
+<!--    <div class="box redbox"> : box와 redbox 두개의 클래스를 갖는다. -->
+
+<!-- 2. clear 개념 -->
+<!--    이전에 사용된 float속성을 해제하는 속성(div 요소일 때, 다음 줄 부터 시작) -->
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>clear 속성</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: gray;
+        text-align: center;
+        line-height: 100px;
+      }
+      .redbox {
+        background-color: red;
+        float: left;
+      }
+      .bluebox {
+        background-color: blue;
+        float: left;
+      }
+      /* red,blue 박스의 float이 해제 */
+      .greenbox {
+        background-color: green;
+        clear: left;
+      }
+      .defaultbox1 {
+        float: left;
+      }
+
+      /* 위의 모든 박스의 float이 취소 = 다음줄 부터 시작(div요소) */
+      .redbox2 {
+        background-color: red;
+        clear: left;
+        float: left;
+      }
+      .bluebox2 {
+        background-color: blue;
+        float: left;
+      }
+      /* green 박스 이전의 float 취소하고, green박스부터 float 다시 시작 */
+      .greenbox2 {
+        background-color: green;
+        clear: left;
+        float: left;
+      }
+      .defaultbox2 {
+        float: left;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box redbox"></div>
+    <div class="box bluebox"></div>
+    <div class="box greenbox"></div>
+    <div class="box defaultbox1">defalutbox1</div>
+    <div class="box redbox2"></div>
+    <div class="box bluebox2"></div>
+    <div class="box greenbox2"></div>
+    <div class="box defaultbox2">defalutbox2</div>
+  </body>
+</html>
