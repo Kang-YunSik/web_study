@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SelfTest</title>
+    <style>
+      /* 전체 페이지 css */
+      /* 제목, 예제 결과 순으로 배치 position? display? */
+      * {
+        margin: 0 auto;
+        padding: 0;
+      }
+
+      h2 {
+        margin: 1rem 0;
+        font-size: 2.5rem;
+      }
+      #wrap {
+        width: 1000px;
+        height: auto;
+        position: relative;
+      }
+
+      /* position css */
+      .position div {
+        border: 0.5rem solid #000;
+      }
+      .yellow-box {
+        width: 1000px;
+        height: 500px;
+        background-color: yellow;
+        position: relative;
+      }
+      .blue-box {
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+        position: absolute;
+        left: 500px;
+        top: 100px;
+        z-index: 1;
+      }
+      .red-box {
+        width: 300px;
+        height: 300px;
+        background-color: red;
+        position: inherit;
+        left: 50px;
+        top: 50px;
+        z-index: 2;
+
+        border-radius: 100%;
+      }
+      .clear {
+        clear: both;
+      }
+
+      /* flex css */
+      /* 1. border 겹치지 않게 하기: border-right: 0rem (각 요소별로 재정의) */
+      .flex {
+        display: block;
+      }
+      .flex-container {
+        display: flex;
+        width: 1000px;
+        height: 300px;
+        line-height: 300px;
+        color: white;
+        font-size: 3rem;
+      }
+      .flex-item {
+        border: 0.5rem solid #000;
+      }
+
+      .flex-item:nth-child(1) {
+        background-color: rgba(0, 0, 100, 1);
+        width: 20%;
+        border-right: 0rem;
+      }
+      .flex-item:nth-child(2) {
+        background-color: rgba(0, 0, 100, 0.75);
+        width: 60%;
+        border-right: 0rem;
+      }
+      .flex-item:nth-child(3) {
+        background-color: rgba(0, 0, 100, 0.5);
+        width: 10%;
+        border-right: 0rem;
+      }
+      .flex-item:nth-child(4) {
+        background-color: rgba(0, 0, 100, 0.25);
+        width: 10%;
+      }
+
+      /* grid css */
+      /* grid item 각각을 정렬 : align-self/justify-self */
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(4, 250px);
+        grid-template-rows: repeat(4, 150px);
+        grid-template-areas: "a1 a2 a2 a2" "a1 a3 a4 a6" "a1 a3 a5 a6" "a7 a7 a7 a6";
+      }
+      .grid-item {
+        font-size: 3rem;
+        width: 100%;
+        color: black;
+        border: 1px solid #000;
+      }
+      #area1 {
+        grid-area: a1;
+        align-self: center;
+        line-height: 450px;
+      }
+      #area2 {
+        grid-area: a2;
+        align-self: center;
+        line-height: 150px;
+      }
+      #area3 {
+        grid-area: a3;
+        align-self: center;
+        line-height: 300px;
+      }
+      #area4 {
+        grid-area: a4;
+      }
+      #area5 {
+        grid-area: a5;
+      }
+      #area6 {
+        grid-area: a6;
+        align-self: end;
+      }
+      #area7 {
+        grid-area: a7;
+        align-self: end;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="position" id="wrap">
+      <h2>position</h2>
+      <div class="yellow-box">
+        <div class="blue-box">
+          <div class="red-box"></div>
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="flex" id="wrap">
+      <h2>flex</h2>
+      <div class="flex-container">
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+        <div class="flex-item">D</div>
+      </div>
+    </div>
+
+    <div class="grid" id="wrap">
+      <h2>grid</h2>
+      <div class="grid-container">
+        <div class="grid-item" id="area1">1</div>
+        <div class="grid-item" id="area2">2</div>
+        <div class="grid-item" id="area3">3</div>
+        <div class="grid-item" id="area4">4</div>
+        <div class="grid-item" id="area5">5</div>
+        <div class="grid-item" id="area6">6</div>
+        <div class="grid-item" id="area7">7</div>
+      </div>
+    </div>
+  </body>
+</html>
