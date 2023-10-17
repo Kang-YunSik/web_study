@@ -34,4 +34,4 @@ if (num % 1 === 0) {
   // arr.length = 짝수 일 때 -> 중앙 index는 정수
   mean = arr[num - 1];
 }
-console.log(mean);
+console.log("중앙값: " + mean);
