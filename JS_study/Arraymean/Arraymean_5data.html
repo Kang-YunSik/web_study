@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      "use restrict";
+      document.write("[5개의 값 중에서 가운데 값 찾기] <br>");
+
+      let arr = [7, 4, 5, 1, 3];
+      document.write("입력 배열: " + arr + "<br>");
+
+      let noSwaps;
+
+      for (let i = arr.length; i > 0; i--) {
+        noSwaps = true;
+        for (let j = 0; j < i - 1; j++) {
+          if (arr[j] > arr[j + 1]) {
+            let tmp = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = tmp;
+
+            noSwaps = false;
+          }
+        }
+        if (noSwaps) break;
+      }
+      document.write("(버블)정렬 결과: " + arr + "<br>");
+      // Math.floor() : 파라미터의 정수값만 반환
+      document.write("중앙값: " + arr[Math.floor(arr.length / 2)] + "<br>");
+    </script>
+  </head>
+  <body></body>
+</html>
