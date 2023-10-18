@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      "use restrict";
+      // 바꿀 금액 입력
+      let money = 6890;
+      // 반환 가능한 금액
+      let arr1 = [1000, 500, 100, 50, 10];
+      let arr2 = [];
+      let tmp;
+
+      document.write("바꿀 금액: " + money + "원 <br>");
+      for (let i = 0; i < arr1.length; i++) {
+        tmp = money % arr1[i];
+        arr2[i] = (money - tmp) / arr1[i];
+        money = money - arr1[i] * arr2[i];
+
+        document.write(arr1[i] + "원 갯수: " + arr2[i]);
+        document.write("<br>");
+      }
+    </script>
+  </head>
+
+  <body></body>
+</html>
