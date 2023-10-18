@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      "use restrict";
+      document.write("역삼각형 출력 프로그램 <br>");
+      document.write("<br>");
+
+      // 가장 상단의 별의 갯수를 입력
+      let maxStar = 5;
+
+      for (let i = 0; i < maxStar / 2 + 0.5; i++) {
+        document.write("&nbsp".repeat(i) + "*".repeat(maxStar - i * 2));
+        document.write("<br>");
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
