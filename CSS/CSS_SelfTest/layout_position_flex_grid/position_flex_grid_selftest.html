@@ -6,10 +6,23 @@
     <title>SelfTest</title>
     <style>
       /* 전체 페이지 css */
-      /* 제목, 예제 결과 순으로 배치 position? display? */
+
+      /* 앞으로 만들 요소들의 default값을 0으로 초기화 */
+      /* 디자인하기 편해짐 */
       * {
-        margin: 0 auto;
+        margin: 0;
         padding: 0;
+        box-sizing: border-box;
+      }
+      /* 반응형 홈페이지의 이상적인 전체 높이 설정 방법 */
+      /* 아래의 html, body 태그 style */
+      html {
+        height: 100%;
+      }
+      body {
+        min-height: 100%;
+        /* 전체 페이지의 상하 여백을 줌 */
+        padding: 1rem 0 3rem 0;
       }
 
       h2 {
@@ -17,6 +30,8 @@
         font-size: 2.5rem;
       }
       #wrap {
+        /* 요소들을 #wrap으로 구역별로 나누고, 전체 페이지에서 가운데에 출력되도록 margin 값을 아래와 같이 준다. */
+        margin: 0 auto;
         width: 1000px;
         height: auto;
         position: relative;
@@ -53,11 +68,11 @@
         border-radius: 100%;
       }
       .clear {
+        /* 이전에 적용했던 position 취소(초기화) */
         clear: both;
       }
 
       /* flex css */
-      /* 1. border 겹치지 않게 하기: border-right: 0rem (각 요소별로 재정의) */
       .flex {
         display: block;
       }
@@ -76,16 +91,19 @@
       .flex-item:nth-child(1) {
         background-color: rgba(0, 0, 100, 1);
         width: 20%;
+        /* border 겹치지 않게 하기: border-right: 0rem (각 요소별로 재정의) */
         border-right: 0rem;
       }
       .flex-item:nth-child(2) {
         background-color: rgba(0, 0, 100, 0.75);
         width: 60%;
+        /* border 겹치지 않게 하기: border-right: 0rem (각 요소별로 재정의) */
         border-right: 0rem;
       }
       .flex-item:nth-child(3) {
         background-color: rgba(0, 0, 100, 0.5);
         width: 10%;
+        /* border 겹치지 않게 하기: border-right: 0rem (각 요소별로 재정의) */
         border-right: 0rem;
       }
       .flex-item:nth-child(4) {
@@ -105,7 +123,6 @@
         font-size: 3rem;
         width: 100%;
         color: black;
-        border: 1px solid #000;
       }
       #area1 {
         grid-area: a1;
@@ -163,7 +180,7 @@
     <div class="grid" id="wrap">
       <h2>grid</h2>
       <div class="grid-container">
-        <div class="grid-item" id="area1">1</div>
+        <div class="grid-item" id="area1"><img src="" alt=""/></div>
         <div class="grid-item" id="area2">2</div>
         <div class="grid-item" id="area3">3</div>
         <div class="grid-item" id="area4">4</div>
