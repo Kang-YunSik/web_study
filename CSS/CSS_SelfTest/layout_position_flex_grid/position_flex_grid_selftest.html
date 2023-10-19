@@ -164,6 +164,88 @@
         grid-area: a7;
         padding-top: 100px;
       }
+
+      .grid-container2 {
+        display: grid;
+        width: 1000px;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 150px);
+        grid-template-areas: "a1 a2 a2 a2" "a1 a3 a4 a6" "a1 a3 a5 a6" "a7 a7 a7 a6";
+        /* 테두리 겹침 제거 하기 위해 gap 사용 */
+        gap: 0.2rem;
+      }
+      .grid-item2 {
+        width: 100%;
+        height: 100%;
+        color: black;
+        border: 0.2rem solid #000;
+        font-size: 3rem;
+      }
+
+      #area12 {
+        grid-area: a1;
+        background-image: url(images/1.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        /* 배경 이미지 크기 상하 100% */
+        background-size: 100% 100%;
+        display: flex;
+        align-items: center;
+      }
+      #area22 {
+        grid-area: a2;
+        background-image: url(images/2.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        display: flex;
+        align-items: center;
+      }
+      #area32 {
+        grid-area: a3;
+        background-image: url(images/3.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        display: flex;
+        align-items: center;
+      }
+      #area42 {
+        grid-area: a4;
+        background-image: url(images/4.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        display: flex;
+        align-items: start;
+      }
+      #area52 {
+        grid-area: a5;
+        background-image: url(images/5.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        display: flex;
+        align-items: start;
+      }
+      #area62 {
+        grid-area: a6;
+        background-image: url(images/6.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        display: flex;
+        align-items: end;
+      }
+      #area72 {
+        grid-area: a7;
+        background-image: url(images/7.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        display: flex;
+        align-items: end;
+      }
     </style>
   </head>
 
@@ -189,7 +271,7 @@
     </div>
 
     <div class="grid" id="wrap">
-      <h2>grid</h2>
+      <h2>grid1 - 사진 정렬(padding)</h2>
       <div class="grid-container">
         <div class="grid-item" id="area1">
           <img src="./images/1.jpg" alt="" />
@@ -211,6 +293,38 @@
         </div>
         <div class="grid-item" id="area7">
           <img src="./images/7.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="grid" id="wrap">
+      <h2>
+        grid2 - 사진 위에 글자 쓰기<br />
+        (background-size: 100% 100%)<br />
+        (display: flex & align-items:center or end)
+      </h2>
+      <div class="grid-container2">
+        <div class="grid-item2" id="area12">
+          <div>1</div>
+        </div>
+        <div class="grid-item2" id="area22">
+          <div>2</div>
+        </div>
+        <div class="grid-item2" id="area32">
+          <div>3</div>
+        </div>
+        <div class="grid-item2" id="area42">
+          <div>4</div>
+        </div>
+        <div class="grid-item2" id="area52">
+          <div>5</div>
+        </div>
+        <div class="grid-item2" id="area62">
+          <div>6</div>
+        </div>
+        <div class="grid-item2" id="area72">
+          <div>7</div>
         </div>
       </div>
     </div>
