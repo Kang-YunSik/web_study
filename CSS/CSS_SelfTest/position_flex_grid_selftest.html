@@ -6,19 +6,10 @@
     <title>SelfTest</title>
     <style>
       /* 전체 페이지 css */
-
+      /* 제목, 예제 결과 순으로 배치 position? display? */
       * {
         margin: 0 auto;
         padding: 0;
-      }
-
-      /* 1. html, body의 높이 설정: 반응형 페이지의 이상적인 전체 높이 설정 방법 */
-      html {
-        height: 100%;
-      }
-
-      body {
-        min-height: 100%;
       }
 
       h2 {
@@ -90,13 +81,11 @@
       .flex-item:nth-child(2) {
         background-color: rgba(0, 0, 100, 0.75);
         width: 60%;
-        /* border 겹치지 않게 */
         border-right: 0rem;
       }
       .flex-item:nth-child(3) {
         background-color: rgba(0, 0, 100, 0.5);
         width: 10%;
-        /* border 겹치지 않게 */
         border-right: 0rem;
       }
       .flex-item:nth-child(4) {
@@ -107,7 +96,6 @@
       /* grid css */
       /* grid item 각각을 정렬 : align-self/justify-self */
       .grid-container {
-        margin: 0 auto;
         display: grid;
         grid-template-columns: repeat(4, 250px);
         grid-template-rows: repeat(4, 150px);
@@ -121,30 +109,32 @@
       }
       #area1 {
         grid-area: a1;
-        border-right: 0;
+        align-self: center;
+        line-height: 450px;
       }
       #area2 {
         grid-area: a2;
-        border-bottom: 0;
+        align-self: center;
+        line-height: 150px;
       }
       #area3 {
         grid-area: a3;
-        border-right: 0;
+        align-self: center;
+        line-height: 300px;
       }
       #area4 {
         grid-area: a4;
       }
       #area5 {
         grid-area: a5;
-        border-top: 0;
       }
       #area6 {
         grid-area: a6;
-        border-left: 0;
+        align-self: end;
       }
       #area7 {
         grid-area: a7;
-        border-top: 0;
+        align-self: end;
       }
     </style>
   </head>
@@ -173,13 +163,13 @@
     <div class="grid" id="wrap">
       <h2>grid</h2>
       <div class="grid-container">
-        <span class="grid-item" id="area1">1</span>
-        <span class="grid-item" id="area2">2</span>
-        <span class="grid-item" id="area3">3</span>
-        <span class="grid-item" id="area4">4</span>
-        <span class="grid-item" id="area5">5</span>
-        <span class="grid-item" id="area6">6</span>
-        <span class="grid-item" id="area7">7</span>
+        <div class="grid-item" id="area1">1</div>
+        <div class="grid-item" id="area2">2</div>
+        <div class="grid-item" id="area3">3</div>
+        <div class="grid-item" id="area4">4</div>
+        <div class="grid-item" id="area5">5</div>
+        <div class="grid-item" id="area6">6</div>
+        <div class="grid-item" id="area7">7</div>
       </div>
     </div>
   </body>
