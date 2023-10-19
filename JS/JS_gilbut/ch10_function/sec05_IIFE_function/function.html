@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 즉시 실행 함수 형태
+      // (function name(){함수정의};)();
+      (function sum(a, b) {
+        console.log(a + b);
+      })(10, 20);
+
+      // 즉시 실행 함수 오류 형태
+      // 즉시 실행 함수는 함수 호출을 생략하는 문법, 함수 호출시 에러 발생
+      (function sum2(a, b) {
+        console.log(a + b);
+      });
+      sum2(20, 20);
+    </script>
+  </head>
+  <body></body>
+</html>
