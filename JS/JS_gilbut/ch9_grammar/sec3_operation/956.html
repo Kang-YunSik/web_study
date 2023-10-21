@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // for in은 배열을 모두 읽고 싶을 때 사용
+      let obj = { name: "철수", age: 20, sex: "남자" };
+      for (keyname in obj) {
+        console.log(keyname + ": " + obj[keyname]);
+        // name: 철수
+        // age: 20
+        // sex: 남자
+      }
+      console.log(keyname); // sex. 마지막 keyname
+
+      let arr1 = ["orange", "banana", "apple"];
+      for (let index1 in arr1) {
+        console.log(index1 + ": " + arr1[index1]);
+        // 0: orange
+        // 1: banana
+        // 2: apple
+      }
+
+      // index 0부터 시작
+      let index2 = 10;
+      let arr2 = ["orange", "banana", "apple"];
+      for (index2 in arr2) {
+        console.log(index2 + ": " + arr2[index2]);
+        // 0: orange
+        // 1: banana
+        // 2: apple
+      }
+    </script>
+  </body>
+</html>
