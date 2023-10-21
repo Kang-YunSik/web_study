@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // && 비교 연산자는 false인 피연산자를 찾아 반환한다.
+
+      // 거짓으로 평가된 피연산자를 반환
+      // x && y : x가 참이면 y값 반환. x가 거짓이면 x값 반환
+      // 빈 문자열, undefined, 0, null은 거짓으로 평가함
+      console.log("cat" && ""); // ""
+      console.log("cat" && undefined); // undefined
+      console.log(0 && "cat"); // 0
+      console.log(null && "cat"); // null
+      console.log("dog" && "cat" && "mouse"); //mouse
+      console.log("dog" && 0 && "mouse"); //0
+
+      // || 비교 연산자는 true인 피연산자를 찾아 반환한다.
+      // x || y : x가 참이면 x값 반환. x가 거짓이면 y값 반환
+      console.log("cat" || ""); // cat
+      console.log("cat" || undefined); // cat
+      console.log(0 || "cat"); // cat
+      console.log(null || "cat"); // cat
+      console.log("dog" || "cat" || "mouse"); // dog
+      console.log("dog" || 0 || "mouse"); // dog
+      console.log(0 || "dog" || "mouse"); // dog
+
+      // ! 비교 연산자는 true, false의 반대값을 반환
+      console.log(!10); //false
+      console.log(!null); //true
+      console.log(!(10 < 20)); //false
+    </script>
+  </body>
+</html>
