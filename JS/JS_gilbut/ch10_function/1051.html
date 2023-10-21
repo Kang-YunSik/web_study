@@ -6,12 +6,14 @@
     <title>Document</title>
     <script>
       // 즉시 실행 함수 형태
-      // (function name(){함수정의};)();
+      // 즉시 실행 함수: 함수를 정의함과 동시에 실행
+      // (function name(){실행문};)(매개변수);
+      //         함수정의부분      함수실행부분
       (function sum(a, b) {
         console.log(a + b);
       })(10, 20);
 
-      // 즉시 실행 함수 오류 형태
+      // 즉시 실행 함수 오류 형태(세미콜론 추가): (function name(){실행문};); (매개변수);
       // 즉시 실행 함수는 함수 호출을 생략하는 문법, 함수 호출시 에러 발생
       (function sum2(a, b) {
         console.log(a + b);
