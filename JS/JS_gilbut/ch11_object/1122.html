@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 객체의 Creat, Update, Delete
+
+      // 객체 선언
+      const person = {
+        name: "Hong GilDong",
+      };
+
+      // Update
+      person.name = "Kim"; // name키 값 변경
+      console.log(person.name);
+
+      // Creat
+      person.age = 20; // age키 20값 생성
+      console.log(person.age);
+      console.log(person); // {name: 'Kim', age: 20}
+
+      // Delete
+      delete person.age; // age키 삭제
+      console.log(person); // {name: 'Kim'}
+
+      // creat를 활용한 빈 객체 선언
+      const person2 = {}; // 빈 객체
+      person2.name = {
+        firstName: "GilDong",
+        lastName: "Hong",
+      }; // name 객체 creat
+      person2.age = 20; // age 객체 creat
+      person2.like = ["apple", "banana"]; // like 객체 creat
+      person2.printInfo = function (value) {
+        return value;
+      }; // printInfo 객체 creat
+    </script>
+  </body>
+</html>
