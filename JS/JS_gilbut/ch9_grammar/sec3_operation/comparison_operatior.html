@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      "use restrict";
+      let a = 5; // 숫자 5
+      let b = "5"; // 문자 5
+      let c = "6"; // 문자 6
+      console.log(a == b); // true. 값만 따짐
+      console.log(a === b); // false. 값과 타입을 따짐
+      console.log(b === c); // false. 값과 타입을 따짐
+
+      console.log("");
+
+      // 부정 비교연사자는 =이 하나씩 줄어든다.
+      console.log(a != b); // false. 값만 비교
+      console.log(a !== b); // true. 값과 타입 비교
+      console.log(a !== c); // true. 갑과 타입 비교
+    </script>
+  </body>
+</html>
