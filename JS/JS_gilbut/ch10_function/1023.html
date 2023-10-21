@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 네이밍 함수로 함수 정의 (변수명과 식별자가 존재)
+      // 함수를 호출할 때 변수명으로 호출해야한다.
+      const gugudan = function naming() {
+        for (let i = 1; i <= 9; i++) {
+          console.log(`3 * ${i} = ${3 * i}`);
+        }
+      };
+
+      gugudan(); // 함수 출력 (변수명으로 호출)
+      naming(); // 에러 발생 (식별자로 호출)
+    </script>
+  </body>
+</html>
