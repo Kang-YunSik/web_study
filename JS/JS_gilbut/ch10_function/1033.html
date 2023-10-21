@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // return 기본문
+      const sum = function (num1, num2) {
+        let result = num1 + num2;
+        return result;
+      };
+      //console.log(result); // 에러 발생 (반환하지 않음)
+      console.log((result = sum(10, 20))); // 30 출력
+
+      // return 기본문2
+      // return을 함수 안에서 정의하고, 함수 밖에서 다른 변수에 return값 정의
+      const sum2 = function (num3, num4) {
+        return num3 + num4;
+      };
+      let result2 = sum2(30, 40);
+      console.log(result2); // 70 출력
+
+      // return 기본문2의 화살표 함수
+      const sum3 = (num5, num6) => num5 + num6;
+      let result3 = sum3(50, 60);
+      console.log(result3); // 110출력
+
+      // return 기본문2의 활용: return값을 undefined로 반환 (함수 종료)
+      const sum4 = function (num7, num8) {
+        if (typeof num7 !== "number" || typeof num8 !== "number") {
+          return; // if문이 실행되면 return = undefined
+        }
+        return num7 + num8; // if문이 실행되지 않으면 정상 작동.
+      };
+      let result4 = sum4("a", "b"); // 매개변수가 문자
+      console.log(result4); // undefined 출력
+    </script>
+  </body>
+</html>
