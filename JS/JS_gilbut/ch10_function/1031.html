@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 매개변수와 인수
+      // 특징 1. 매개변수를 전달하지 않아도 에러발생X. undefined 반환
+
+      // 네이밍 함수
+      const gugudan = function naming(dan) {
+        for (let i = 1; i <= 9; i++) {
+          console.log(`${dan} * ${i} = ${dan * i}`);
+        }
+      };
+      gugudan(5); // 5단 출력
+      gugudan(); // 매개변수 부분을 undefined으로 출력
+
+      // 화살표 함수
+      const gugudan2 = (dan2) => {
+        for (let i = 1; i <= 9; i++) {
+          console.log(`${dan2} * ${i} = ${dan2 * i}`);
+        }
+      };
+      gugudan2(7); // 7단 출력
+
+      // 매개변수 기본값 할당
+      const gugudan3 = (dan3 = 3) => {
+        for (let i = 1; i <= 9; i++) {
+          console.log(`${dan3} * ${i} = ${dan3 * i}`);
+        }
+      };
+      gugudan3(); // 3단 출력
+    </script>
+  </body>
+</html>
