@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 화살표 함수 정의하기
+
+      // 네이밍 함수
+      const gugudan = function naming() {
+        for (let i = 1; i <= 9; i++) {
+          console.log(`3 * ${i} = ${3 * i}`);
+        }
+      };
+
+      // 화살표 함수
+      // function이 생략되고, 식별자가 생략된다.
+      const gugudan2 = () => {
+        for (let i = 1; i <= 9; i++) {
+          console.log(`3 * ${i} = ${3 * i}`);
+        }
+      };
+      gugudan2;
+    </script>
+  </body>
+</html>
