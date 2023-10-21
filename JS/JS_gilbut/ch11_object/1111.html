@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 객체: 키와 값으로 구성된 속성의 집합
+      // 특징 1. 여러 개의 값을 갖을 수 있고, 여러 타입의 값을 갖을 수 있다.
+      // 특징 2. 객체 안에 또 다른 객체가 들어갈 수 있고, 함수도 들어갈 수 있다.
+      // 객체는 {}로 생성할 수 있다. 키와값은 쉼표(,)로 구분 마지막에 세미콜론(};)
+
+      const person = {
+        name: {
+          firstName: "GilDong", // 문자 타입
+          lastName: "Hong",
+        }, // 객체 안에 객체
+        age: 20, // 숫자 타입
+        isAdult: true, // 불린 타입
+        printInfo: function () {
+          // 객체 안에 함수
+          console.log("printInfo");
+        },
+        "phone number": "010-1234-5678", // 공백이 있는 키값 정의
+      };
+    </script>
+  </body>
+</html>
