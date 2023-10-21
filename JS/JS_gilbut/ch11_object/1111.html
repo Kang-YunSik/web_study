@@ -19,12 +19,29 @@
         }, // 객체 안에 객체
         age: 20, // 숫자 타입
         isAdult: true, // 불린 타입
-        printInfo: function () {
+        printInfo: function (value) {
           // 객체 안에 함수
-          console.log("printInfo");
+          return value + 10;
         },
         "phone number": "010-1234-5678", // 공백이 있는 키값 정의
+        like: ["apple", "banana"],
       };
+
+      // 객체 호출: 객체명["키값"] 또는 객체명.키값
+      console.log(person["name"]); // 객체 호출. {firstName: "GilDong", lastName: "Hong"}
+      console.log(person["name"]["lastName"]); // 객체 안의 값 호출. Hong
+      console.log(person.name.lastName); // Hong
+
+      console.log(person["age"]); // 객체 호출. 20
+      console.log(person.age); // 20
+
+      console.log(person["like"]); // 배열 호출. ["apple", "banana"]
+      console.log(person["like"][1]); // 배열 index 호출. banana
+      console.log(person.like[1]); // banana
+
+      console.log(person["printInfo"]); // 함수 호출. f(value) {return value+10;}
+      console.log(person["printInfo"](10)); // 함수 호출 및 실행. 20
+      console.log(person.printInfo(10)); // 20;
     </script>
   </body>
 </html>
