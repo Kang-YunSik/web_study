@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="title">title</h1>
+    <p class="text">text-1</p>
+    <p class="text">text-2</p>
+
+    <div class="box-1">
+      <p class="text2">text2-1</p>
+      <p class="text2">text2-2</p>
+    </div>
+    <div class="box-2">
+      <p class="text2">text2-3</p>
+      <p class="text2">text2-4</p>
+    </div>
+    <script>
+      //id, class 속성값과 태그명으로 선택하기 : get 메서드
+
+      // id="title" 인 태그를 el 변수에 대입
+      // id는 무조건 1개만 존재
+      const el = document.getElementById("title");
+      console.log(el);
+      // class="text" 인 태그를 classEl 변수에 대입
+      // 여러개가 존재할 수 있으므로 배열로 출력
+      // 배열로 접근할 수 도 있다.
+      const classEl = document.getElementsByClassName("text");
+      console.log(classEl); // 크기가 2인 배열
+      console.log(classEl[1]); // 배열 인덱스 요소 1개
+      // <p> tag 인 태그를 tagEls 변수에 대입
+      const tagEls = document.getElementsByTagName("p");
+      console.log(tagEls); // 크기가 6인 배열
+
+      // CSS 선택자로 선택하기 : query 메서드
+      // 매개변수가 CSS 선택자랑 똑같다.
+      const el2 = document.querySelector(".box-1");
+      console.log(el2); // class="box-1" 요소와 자식요소까지 모두 출력
+
+      const el3 = document.querySelectorAll(".box-1 .text2");
+      console.log(el3); // class="box-1" 요소 중 class="text2"인 요소만 출력
+    </script>
+  </body>
+</html>
