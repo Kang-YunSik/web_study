@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .red-color {
+        color: red;
+      }
+      .fz20 {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="text">text</p>
+    <p id="text2">반짝반짝</p>
+
+    <script>
+      // 클래스 속성 조작하기.
+      // 클래스 추가, 삭제, 추가/삭제 반복
+      const pEl = document.querySelector("#text"); // 노드 선택하기
+      pEl.classList.add("red-color"); // 노드에 CSS선택자 "red-color"를 추가
+      pEl.classList.add("fz20"); // 노드에 CSS선택자 "fz20"를 추가
+
+      const pElremove = document.querySelector("#text");
+      pElremove.classList.remove("red-color"); // 노드에 CSS선택자 "red-color"를 삭제
+
+      // 1초마다 red-color 스타일 추가/삭제 반복
+      const pEl2 = document.querySelector("#text2");
+      setInterval(function () {
+        pEl2.classList.toggle("red-color");
+      }, 1000);
+    </script>
+  </body>
+</html>
