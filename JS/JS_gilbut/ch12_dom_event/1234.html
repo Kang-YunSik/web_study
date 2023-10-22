@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button data-cnt="10">가방 구매</button>
+    <button data-cnt="0">신발 구매</button>
+
+    <script>
+      // 데이터 속성 조작하기: data-*속성, dataset속성
+
+      const buttonEls = document.querySelectorAll("button"); // 노드 선택
+
+      buttonEls.forEach((el) => {
+        console.log(el.dataset.cnt); // dataset.cnt : 속성의 값만 가져오고 싶을 때
+      });
+
+      const buttonEls2 = document.querySelectorAll("button");
+      buttonEls2.forEach((el) => {
+        el.dataset.cnt = 50; // data-cnt 속성의 값 변경
+        console.log(el.dataset.cnt);
+      });
+    </script>
+  </body>
+</html>
