@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // String 객체_문자열
+      // [속성]
+      // 1. length : 문자열의 길이 반환
+      // [메소드]
+      // 1. includes(): 매개변수가 문자열에 포함되어 있으면 ture
+      // 2. replace() : 문자열 변경 (일치한 부분 한 곳만)
+      // 3. replaceAll() : 문자열 변경 (일치한 부분 전체)
+      // 4. split() : 매개변수로 문자열을 나누고, 새로운 문자열 반환
+      // 5. toUpperCase() : 대문자로 변경
+      // 6. trim() : 앞 뒤 공백 제거
+      // 7. indexOf(): 매개변수와 일치하는 첫 번째 문자의 인덱스 반환
+
+      // 속성: 변수.속성
+      // 메소드: 변수.메소드() -> 매개변수 필요함
+
+      // length
+      const pw = "124";
+      const pw2 = "1234";
+      if (pw.length < 4) {
+        console.log("비밀번호는 최소 4자리 입력");
+      }
+      if (pw2.length >= 4) {
+        console.log("완료: " + pw2);
+      }
+
+      // includes()
+      const email = "test@naver.com";
+      if (email.includes("@") === false) {
+        console.log("올바른 이메일이 아닙니다.");
+      } else {
+        console.log("올바른 이메일 입니다."); // 출력
+      }
+
+      /// indexOf()
+      const email2 = "test@naver.com";
+      let index = email2.indexOf("@");
+      console.log(index); // 4 출력
+      // indexOf()를 통해 매개변수를 찾지 못하면 -1을 반환한다.
+      if (email2.indexOf(".net") === -1) {
+        console.log(".net이 포함되어 있지 않습니다.");
+      }
+    </script>
+  </body>
+</html>
