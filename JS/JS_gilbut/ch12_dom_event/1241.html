@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>I'm first Node</p>
+    <div>
+      I hava child
+      <p>I'm child</p>
+    </div>
+
+    <script>
+      // 노드 추가하기
+      // 1. createElement: 요소 노드 생성
+      // 2. createTextNode: 텍스트 노드 생성
+      // 3. createAttribute: 속성 노드 생성
+
+      // 노드 연결하기
+      // 1. appendChild: 기준 노드에 자식 노드 연결
+      // 2. setAttributeNode: 기준 노드에 속성 노드 연결
+
+      const aEl = document.createElement("a"); // "a" 요소 노드 생성
+      document.body.appendChild(aEl); // body 태그에 자식으로 연결
+
+      // a 노드에 텍스트 추가
+      const txtEl = document.createTextNode("길벗"); // "길벗" 텍스트 노드 생성
+      document.querySelector("a").appendChild(txtEl); // a 노드에 txtEl 노드를 자식으로 연결
+
+      // a 노드에 href 속성 추가
+      const hrefAttrEl = document.createAttribute("href"); // "href" 속성 노드 생성
+      hrefAttrEl.value = "https://www.gilbut.co.kr"; // value: 속성 노드에 값을 할당
+      document.querySelector("a").setAttributeNode(hrefAttrEl); // a 노드에 hrefAttrEl노드를 속성으로 연결
+
+      // a 노드에 target 속성 추가
+      const targetAttrEl = document.createAttribute("target"); // "target" 속성 노드 생성
+      targetAttrEl.value = "_blank"; // value: 속성 노드에 값을 할당
+      document.querySelector("a").setAttributeNode(targetAttrEl); //a 노드에 targetAttrEl노드를 속성으로 연결
+
+      // body의 p 태그 요소 삭제하기
+      const pEl = document.querySelector("p");
+      pEl.parentNode.removeChild(pEl);
+    </script>
+  </body>
+</html>
