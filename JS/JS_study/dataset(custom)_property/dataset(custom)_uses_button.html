@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>커피를 주문하세요.</h3>
+    <button data-coffee-name="아메리카노" data-price="4100">아메리카노</button>
+    <button data-coffee-name="카페라떼" data-price="4300">카페라떼</button>
+    <button data-coffee-name="바닐라라떼" data-price="4600">바닐라라떼</button>
+    <hr />
+    <h3>주문내역</h3>
+    <p><span id="coffee"></span> : <span id="price"></span>원</p>
+    <hr />
+    <p>출처: https://ossam5.tistory.com/251</p>
+
+    <script>
+      //문서객체선택
+      var button = document.getElementsByTagName("button");
+      var coffee = document.getElementById("coffee");
+      var price = document.getElementById("price");
+
+      for (var i = 0; i < button.length; i++) {
+        // i번째 button을 누르면
+        button[i].addEventListener("click", function () {
+          // cName 변수에 해당 button의 data-coffee-name 속성의 값 대입
+          // data-속성을 접근할 때: -는 카멜표기법으로 구분
+          var cName = this.dataset.coffeeName;
+          // cPrice 변수에 해당 button의 data-price 속성의 값 대입
+          var cPrice = this.dataset.price;
+
+          // id="coffee"인 요소에 cName 텍스트 접근
+          coffee.textContent = cName;
+          // id="price"인 요소에 cPrice 텍스트 접근
+          price.textContent = cPrice;
+        });
+      }
+    </script>
+  </body>
+</html>
