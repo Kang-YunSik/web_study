@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .red-color {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <a id="basic" href="https://www.gilbut.co.kr">길벗</a><br />
+    <a id="use" href="https://www.gilbut.co.kr" data-link="길벗">길벗</a>
+
+    <script>
+      // 메소드로 속성 조작하기: 모든 속성을 전체적으로 조작
+      // 1. getAttribute: 속성값을 가져옴
+      // 2. setAttribute: 속성값을 설정합니다.
+      // 3. removeAttribute: 속성을 삭제합니다.
+
+      // 속성값 가져오기
+      const aEl = document.querySelector("#basic"); // a 태그 노드 선택
+      const href = aEl.getAttribute("href"); // a태그에서 "href"의 속성을 가져오기
+      console.log(href); // "https://www.gilbut.co.kr" 값을 가져옴
+
+      aEl.setAttribute("href", "https://www.sucoding.kr"); // a 태그 노드의 "href" 속성을 "https://www.sucoding.kr"로 변경
+      aEl.innerText = "수코딩"; // aEl 노드에 텍스트 수정
+      aEl.setAttribute("target", "_blank"); // aEl 노드에 "target" 속성을 추가하고 "_blank" 값을 줌.
+
+
+      // 활용1: class 속성을 추가해 CSS 스타일을 조작할 수도 있다.
+      // 활용2: dataset의 값도 바꿀 수 있다.
+      const aEl2 = document.querySelector("#use");
+      aEl2.setAttribute("data-link", "이지톡"); // dataset 값을 바꿀 수 있다.(aEl.dataset.link = "이지톡" 과 동일)
+      aEl2.setAttribute("class", "red-color"); // class를 새로 추가해 CSS 스타일 적용
+    </script>
+  </body>
+</html>
