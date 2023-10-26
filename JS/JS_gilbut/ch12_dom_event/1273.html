@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h4>이벤트 발생 요소 노드 출력</h4>
+    <p id="pEl1">text-1</p>
+    <p id="pEl1">text-2</p>
+    <p id="pEl1">text-3</p>
+
+    <h4>클릭 시 색상 변경. this 속성</h4>
+    <p id="pEl2">text-1</p>
+    <p id="pEl2">text-2</p>
+    <p id="pEl2">text-3</p>
+
+    <h4>화살표 함수로 정의시 target 속성으로 대체</h4>
+    <p id="pEl3">text-1</p>
+    <p id="pEl3">text-2</p>
+    <p id="pEl3">text-3</p>
+
+    <h4>화살표 함수로 클릭 시 색상 변경.</h4>
+    <p id="pEl4">text-1</p>
+    <p id="pEl4">text-2</p>
+    <p id="pEl4">text-3</p>
+
+    <script>
+      // this 키워드 사용하기
+
+      // this 키워드를 사용하여 이벤트가 발생한 요소 노드를 출력하기
+      const pEls = document.querySelectorAll("#pEl1");
+      pEls.forEach((el) => {
+        el.addEventListener("click", function () {
+          console.log(this);
+        });
+      });
+
+      // p 태그를 클릭하면 텍스트 색상을 빨간색으로 바꾸고, 이미 빨간색이라면 다시 검은색으로 바꾸도록 코드
+      const pEls2 = document.querySelectorAll("#pEl2");
+      pEls2.forEach((el) => {
+        el.addEventListener("click", function () {
+          if (this.style.color === "red") {
+            this.style.color = "black";
+          } else {
+            this.style.color = "red";
+          }
+        });
+      });
+
+      // 화살표 함수는 this가 적용되지 않음. target속성으로 대체
+      const pEls3 = document.querySelectorAll("#pEl3");
+      pEls3.forEach((el) => {
+        el.addEventListener("click", (e) => {
+          console.log(e.target);
+        });
+      });
+
+      // 화살표 함수로 클릭 시 색상 변경.
+      const pEls4 = document.querySelectorAll("#pEl4");
+      pEls4.forEach((el) => {
+        el.addEventListener("click", function (e) {
+          if (e.target.style.color === "red") {
+            e.target.style.color = "black";
+          } else {
+            e.target.style.color = "red";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
