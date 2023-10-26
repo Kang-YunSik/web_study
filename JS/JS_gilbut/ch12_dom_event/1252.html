@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form name="frm1">
+      <label for="uname">이름</label>
+      <input type="text" id="uname" name="uname" />
+      <label for="age">나이</label>
+      <input type="text" id="age" name="age" />
+      <label for="gender">성별</label>
+      <select id="gender" name="gender">
+        <option value="male">male</option>
+        <option value="female">female</option>
+      </select>
+      <button type="submit">전송</button> <br />
+
+      <label for="send">건의사항</label> <br />
+
+      <textarea type="text" id="send" name="send"> 없음 </textarea>
+    </form>
+
+    <script>
+      // 폼 요소 선택하기
+
+      console.log(document.frm1); // 폼 전체 html 출력
+      console.log(document.frm1.elements[0]); // 폼 index를 출력. type=text
+      // 폼 배열은 type이 있는 한줄 한줄이 하나의 element
+      console.log(document.frm1.elements[3]); // 폼 index를 출력. type=submit
+      console.log(document.frm1.elements["gender"]); // 폼 name값이 같은 것을 출력
+
+      // 폼 요소의 입력값 다루기
+
+      document.frm1.age.value = "26"; // name="age"인 input에 "26"의 값을 넣음.
+      document.frm1.send.value = `hello, javascript!`;
+    </script>
+  </body>
+</html>
