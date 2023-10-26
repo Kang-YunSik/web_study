@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 체크박스 -->
+    <form>
+      <label><input type="checkbox" value="apple" checked="true" />사과</label>
+      <label><input type="checkbox" value="banana" />바나나</label>
+      <label><input type="checkbox" value="orange" />오렌지</label>
+      <label><input type="checkbox" value="melon" />멜론</label>
+    </form>
+    <br />
+
+    <!-- 라디오버튼 -->
+    <form>
+      <label><input type="radio" name="fruits" value="apple" />사과</label>
+      <label><input type="radio" name="fruits" value="banana" />바나나</label>
+      <label
+        ><input
+          type="radio"
+          name="fruits"
+          value="orange"
+          checked="true"
+        />오렌지</label
+      >
+      <label><input type="radio" name="fruits" value="melon" />멜론</label>
+    </form>
+
+    <!-- 콤보박스 -->
+    <form>
+      <select>
+        <option value="apple">사과</option>
+        <option value="banana">바나나</option>
+        <option value="orange">오렌지</option>
+        <option value="melon">멜론</option>
+      </select>
+    </form>
+
+    <script>
+      // [체크박스 다루기]
+      // 체크박스의 checked 속성값이 있는지 확인하는 반복문
+      const checkboxEls = document.querySelectorAll("[type='checkbox']"); // 요소 선언. type='checkbox'인 태그
+      for (let i = 0; i < checkboxEls.length; i++) {
+        // checked 속성이 있을 때, 요소의 value를 출력
+        if (checkboxEls[i].checked === true) {
+          console.log(checkboxEls[i].value);
+        }
+      }
+      // 모든 체크박스에 checked 속성을 입력하는 반복문
+      const checkboxEls2 = document.querySelectorAll("[type='checkbox']");
+      for (let i = 0; i < checkboxEls2.length; i++) {
+        checkboxEls2[i].checked = true;
+      }
+
+      // [라디오버튼 다루기]
+      // 라디오버튼의 checked 속성값이 있는지 확인하는 반복문
+      const radioEls = document.querySelectorAll("[type='radio']");
+      for (let i = 0; i < radioEls.length; i++) {
+        if (radioEls[i].checked === true) {
+          console.log(radioEls[i].value);
+        }
+      }
+      // value === "banana"인 라디오버튼에 checked 속성을 입력하는 반복문
+      // 기존에 checked 되있던 태그는 checked가 취소된다.
+      const radioEls2 = document.querySelectorAll("[type='radio']");
+      for (let i = 0; i < radioEls2.length; i++) {
+        if (radioEls2[i].value === "banana") {
+          radioEls2[i].checked = true;
+        }
+      }
+
+      // [콤보박스 다루기]
+      // 선택된 콤보박스의 value를 결과로 가져오는 반복문
+      const optionEls = document.querySelectorAll("option");
+      for (let i = 0; i < optionEls.length; i++) {
+        if (optionEls[i].selected === true) {
+          console.log(optionEls[i].value);
+        }
+      }
+      // 특정 값을 선택된 상태로 만드는 반복문
+      const optionEls2 = document.querySelectorAll("option");
+      for (let i = 0; i < optionEls2.length; i++) {
+        if (optionEls2[i].value === "banana") {
+          optionEls2[i].selected = true;
+        }
+      }
+    </script>
+  </body>
+</html>
