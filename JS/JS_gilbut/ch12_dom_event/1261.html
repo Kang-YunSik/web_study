@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 버튼 -->
+    <button onclick="clickEvent()">불합격 버튼</button><br />
+
+    <!-- 폼(input) -->
+    <form>
+      <input type="text" onfocus="focusEvent()" onblur="blurEvent()" />
+    </form>
+
+    <!-- 버튼2 -->
+    <button id="button2" onclick="clickEvent()">합격 버튼</button><br />
+    <button id="button3" onclick="clickEvent()">대기중 버튼</button><br />
+    <button id="button4" onclick="clickEvent()">취소 버튼</button><br />
+    <button id="button5" onclick="clickEvent()">최고 버튼</button><br />
+    <button id="button6" onclick="clickEvent()">최저 버튼</button><br />
+
+    <script>
+      // [인라인 방식으로 이벤트 등록하기]
+      // HTML 문서의 속성 이벤트(onclick, onfocus, onblur 등)를 인식하여 다음 함수를 실행한다.
+
+      // 버튼 클릭시 경고창 출력하는 코드
+      function clickEvent() {
+        // alert: 경고창 출력
+        alert("불합격입니다!");
+      }
+      // 입력창에 커서를 활성화 했을 때 이벤트 발생하는 코드
+      function focusEvent() {
+        console.log("focus on"); // 콘솔창에 focus on 출력
+      }
+      function blurEvent() {
+        console.log("focus out"); // 콘솔창에 focus out 출력
+      }
+      //
+      //
+      //
+      // [프로퍼티 리스너 방식으로 이벤트 등록하기]
+      // 요소 노드에 직접 속성으로 이벤트를 등록하는 방법이다.
+
+      // 버튼 클릭시 경고창 출력하는 코드
+      // 함수 표현식 코드
+      const btnEl = document.querySelector("#button2");
+      btnEl.onclick = function () {
+        alert("합격입니다!");
+      };
+      // 화살표 함수 코드
+      const btnEl2 = document.querySelector("#button3");
+      btnEl2.onclick = () => {
+        alert("대기중입니다");
+      };
+      // 별도의 함수를 정의한 코드 (네이밍 함수)
+      const btnEl3 = document.querySelector("#button4");
+      btnEl3.onclick = cancleButton;
+      function cancleButton() {
+        alert("취소하셨습니다.");
+      }
+      //
+      //
+      //
+      // [addEventListener 메서드로 이벤트 등록하기]
+      // 이벤트를 등록하는 방법 중에서 가장 권장하는 방법
+      // 형식: <노드>.addEventListener("<이벤트 타입>", <이벤트 함수>);
+
+      // 함수 표현식
+      const btnEl4 = document.querySelector("#button5");
+      btnEl4.addEventListener("click", function () {
+        alert("최고입니다.");
+      });
+
+      // 화살표 함수
+      //
+      const btnEl5 = document.querySelector("#button6");
+      // const 변수로 함수를 정의했기 때문에, 호출보다 상위에 있어야 한다.
+      const worstButton = () => {
+        alert("최저입니다.");
+      };
+      btnEl5.addEventListener("click", worstButton());
+    </script>
+  </body>
+</html>
