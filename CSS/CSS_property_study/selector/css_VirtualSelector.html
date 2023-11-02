@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+    <style>
+        p::before{
+            content: '♥';
+            color: pink;            
+        }
+
+
+        a::after{
+            content: '[생성된 웹 페이지 바로가기]' ;
+            background-color: blue;
+            color: white; 
+        }
+
+        .hot:before{
+            content: '[공지]' ;
+            color:red;
+            font-size: 20px;
+        }
+
+    </style>
+
+<body>
+    <div>
+        <p name>
+            tomato
+        </p>
+        <p>
+            banana
+        </p>
+    </div>
+
+    <div>
+        <a href>
+            새로운 웹 페이지를 만드시겠습니까? (클릭)
+        </a>
+    </div>
+
+    <div>
+        <p class="hot">
+            2023.10.31 월말 결산(필독)
+        </p>
+    </div>
+</body>
+</html>

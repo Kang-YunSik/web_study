@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 자식 선택자 -->
+    <!-- box 부모 클래스에서 p 자식 클래스에 스타일 적용 -->
+    <style>
+        .box > p{
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="box">
+        <p>나는 자식 관계</p>
+        <ul>
+            <li>
+                <p>나는 아니야</p>
+            </li>
+            <li>
+                <p>나도 아니야</p>
+            </li>
+        </ul>
+        <p>나도 자식 관계</p>
+        <ol>
+            <li>
+                <p>나는 아니야</p>
+            </li>
+            <li>
+                <p>나도 아니야</p>
+            </li>
+        </ol>
+    </div>
+</body>
+</html>

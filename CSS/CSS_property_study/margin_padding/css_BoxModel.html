@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /* div 별로 간격을 조절할 수 있다. */
+        div {
+            width: 200px;
+            height: 100px;
+            background: #ffbc8a;
+            border: 1px solid #000;
+        }
+
+        /* 각 div의 class 별로 margin 값 입력 */
+        .box1 { margin: 30px 50px 30px 50px;
+                padding: 10px 10px;}
+        .box2 { margin: 30px 50px;
+                padding: 20px 20px;}
+        .box3 { margin: 50px;
+                padding: 30px 30px;}
+        .box4 { margin: 30px 5px 10px;
+                padding: 40px 40px;}
+        .box-auto1 {
+            margin:0 auto;  /* 상하좌우 비율을 1:1로 정렬 (가운데정렬) */
+        }
+        .box-auto2 {
+            margin:50px auto;  /* 상하 길이를 줄 수 있음 */
+        }
+    </style>
+</head>
+    <body>
+    <div class="box1"> box1 </div>
+    <div class="box2"> box2 </div>
+    <div class="box3"> box3 </div>
+    <div class="box4"> box4 </div>
+    <div class="box-auto1"> auto margin box1 </div>
+    <div class="box-auto2"> auto margin box2 </div>
+    </body>
+</html>

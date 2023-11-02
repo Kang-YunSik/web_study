@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- em 스타일 -->
+    <style>
+        .parent{
+            font-size: 32px;
+            font-weight: bold; /* bold = 700 */
+        }
+        /* em단위는 부모 요소의 텍스트 크기를 기준으로 상대적인 크기를 갖는다 */
+        /* 2em = 16px * 2 = 32px */
+        .child{
+            font-size: 2em;
+            font-style: italic; /* italic = 기울림꼴 */
+            text-align: center; 
+
+        }
+        /* rem단위는 html 태그의 텍스트 크기를 기준 */
+        /* html의 텍스트 크기의 기본값 = 16px */
+        /* 2rem = 32px */
+        .child-to-child{
+            font-size: 2rem; 
+            font-style: normal; /* child와 부모-자식 관계이므로 font-style 값이 상속된다. */
+            text-align: right;
+        }
+        a{
+            text-decoration: none;
+        }
+
+    </style>
+
+</head>
+<body>
+    <!-- 부모-자식 관계 -->
+    <!-- html에서 부모-자식 관계는 <div>로 구분한다 -->    
+    <div class="parent">
+        할아버지
+        <div class="child">
+            아버지
+            <div class="child-to-child">
+                나
+            </div>
+        </div>
+    </div>
+    <div class="joinpicture" style="text-align: center;" > <!-- 인라인 방식으로 정렬추가 -->
+        <a href="#">
+            가족사진 보러가기
+        </a>
+    </div>
+</body>
+</html>
